@@ -15,20 +15,16 @@ import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
-public class RickAndMortyAdapter extends RecyclerView.Adapter<RickAndMortyAdapter.CharacterViewHolder> implements View.OnClickListener {
+public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.CharacterViewHolder> implements View.OnClickListener {
 
-    private List<RickAndMortyModel> listCharacters;
+    private List<BusinessModel> listCharacters;
     private final OnItemClickListener onItemClickListener;
 
-    public RickAndMortyAdapter(OnItemClickListener onItemClickListener) {
+    public BusinessAdapter(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
-//    public ListOfNameAdapter(List<String> listFromFragment) {
-//        this.listOfName = listOfName;
-//    }
-
-    public void setData(List<RickAndMortyModel> listCharacters) {
+    public void setData(List<BusinessModel> listCharacters) {
         this.listCharacters = listCharacters;
         notifyDataSetChanged();
     }
@@ -36,24 +32,23 @@ public class RickAndMortyAdapter extends RecyclerView.Adapter<RickAndMortyAdapte
     @NonNull
     @Override
     public CharacterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CharacterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_name,parent,false));
+        return new CharacterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_name, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RickAndMortyAdapter.CharacterViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BusinessAdapter.CharacterViewHolder holder, int position) {
         holder.itemView.setOnClickListener(this);
         holder.onBind(listCharacters.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listCharacters.size();
+            return listCharacters.size();
     }
-
 
     @Override
     public void onClick(View view) {
-        onItemClickListener.onClick((RickAndMortyModel) view.getTag());
+        onItemClickListener.onClick((BusinessModel) view.getTag());
     }
 
     public class CharacterViewHolder extends RecyclerView.ViewHolder {
@@ -72,13 +67,12 @@ public class RickAndMortyAdapter extends RecyclerView.Adapter<RickAndMortyAdapte
 
         }
 
-        public void onBind(RickAndMortyModel character) {
+        public void onBind(BusinessModel character) {
             Glide.with(ivImage.getContext()).load(character.getImageUrl()).into(ivImage);
             tvName.setText(character.getName());
             tvAge.setText(String.valueOf(character.getAge()));
             mainContainer.setCardBackgroundColor(Color.parseColor(character.getColor()));
             itemView.setTag(character);
         }
-
     }
 }

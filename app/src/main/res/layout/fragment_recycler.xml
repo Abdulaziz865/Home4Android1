@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".RecyclerFragment">
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list_of_name"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="11"
-        tools:listitem="@layout/item_name" />
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:itemCount="20"
+        tools:listitem="@layout/item_name"/>
 
-   <Button
-       android:id="@+id/button_add"
-       android:layout_gravity="bottom|end"
-       android:layout_width="100dp"
-       android:layout_height="100dp"
-       android:background="@drawable/add_circle"/>
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/add_circle"
+        android:contentDescription="@string/create" />
 
 </FrameLayout>

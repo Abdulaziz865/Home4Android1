@@ -6,22 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddFragment extends Fragment {
 
-    private final List<RickAndMortyModel> listOfCharacters = new ArrayList<>();
 
-    ImageView imageViewCreate;
-    EditText editNameCreate;
-    EditText editAgeCreate;
+    EditText imageViewCreate, editNameCreate, editAgeCreate;
     Button buttonCreate;
 
     @Override
@@ -33,37 +30,43 @@ public class AddFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onViewCreated(view, savedInstanceState);
         imageViewCreate = view.findViewById(R.id.image_create);
         editNameCreate = view.findViewById(R.id.et_name_create);
         editAgeCreate = view.findViewById(R.id.et_age_create);
         buttonCreate = view.findViewById(R.id.btn_create);
-
-        buttonCreate.setOnClickListener(new View.OnClickListener() {
-            String nameCreateText = editNameCreate.getText().toString().trim();
-            String nameAgeText = editAgeCreate.getText().toString().trim();
-
-            @Override
-            public void onClick(View view) {
-                if (!nameCreateText.isEmpty() && !nameAgeText.isEmpty()) {
-                    editNameCreate.setError("Введите имя");
-                    editAgeCreate.setError("Введите возраст");
-                } else if (!nameCreateText.isEmpty()) {
-                    editNameCreate.setError("Введите имя");
-                } else if (!nameAgeText.isEmpty()) {
-                    editAgeCreate.setError("Введите возраст");
-                } else {
-                    listOfCharacters.add(new RickAndMortyModel("https://avatars.mds.yandex.net/i?id=358ef38c5d070e947d846ee41357859fd24cd965-5858200-images-thumbs&n=13",
-                            nameCreateText, 0, "#FFE6FF00"));
-
-                }
-            }
-
-        });
+        onClick();
     }
 
-    public List<RickAndMortyModel> getListOfCharacters() {
-        return listOfCharacters;
+    private void onClick() {
+
+        buttonCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String imageCreateView = imageViewCreate.getText().toString().trim();
+                String nameCreateText = editNameCreate.getText().toString().trim();
+                String ageCreateText = editAgeCreate.getText().toString().trim();
+
+                if (imageCreateView.isEmpty() && nameCreateText.isEmpty() && ageCreateText.isEmpty()) {
+                    editNameCreate.setError("Введите имя");
+                    imageViewCreate.setError("Введите ссылку");
+                    editAgeCreate.setError("Введите возраст");
+                } else if (imageCreateView.isEmpty()) {
+                    imageViewCreate.setError("Введите ссылку");
+                } else if (nameCreateText.isEmpty()) {
+                    editNameCreate.setError("Введите имя");
+                } else if (ageCreateText.isEmpty()) {
+                    editAgeCreate.setError("Введите возраст");
+                } else {
+                    Bundle bundle = new Bundle();
+                    BusinessModel model  = new BusinessModel(imageCreateView,nameCreateText,Integer.parseInt(ageCreateText),"#36D375");
+                    bundle.putSerializable("editBusinesmens", model);
+                    getParentFragmentManager().setFragmentResult("OK",bundle);
+                    getParentFragmentManager().popBackStack();
+                }
+            }
+        });
     }
 }
 

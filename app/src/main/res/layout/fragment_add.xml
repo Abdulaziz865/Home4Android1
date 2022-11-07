@@ -5,20 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:background="#BD9494"
     android:orientation="vertical"
     tools:context=".AddFragment">
 
-    <ImageView
+    <EditText
         android:id="@+id/image_create"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center" />
-
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/oval"
+        android:gravity="center"
+        android:hint="@string/url_image"
+        android:textSize="20dp"
+        android:textStyle="italic" />
     <EditText
         android:id="@+id/et_name_create"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/oval"
         android:gravity="center"
         android:hint="@string/person_name"
@@ -26,6 +31,7 @@
         android:textStyle="italic" />
 
     <EditText
+        android:inputType="number"
         android:id="@+id/et_age_create"
         android:layout_width="match_parent"
         android:layout_height="70dp"
@@ -38,8 +44,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_create"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:padding="5dp"

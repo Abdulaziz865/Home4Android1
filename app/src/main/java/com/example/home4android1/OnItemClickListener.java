@@ -1,5 +1,7 @@
 package com.example.home4android1;
+
 public interface OnItemClickListener {
-    void onClick(RickAndMortyModel model);
+
+    void onClick(BusinessModel model);
 
 }

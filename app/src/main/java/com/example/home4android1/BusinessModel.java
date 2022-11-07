@@ -2,14 +2,14 @@ package com.example.home4android1;
 
 import java.io.Serializable;
 
-public class RickAndMortyModel implements Serializable {
+public class BusinessModel implements Serializable {
 
     private String imageUrl;
     private String name;
     private int age;
     private String color;
 
-    public RickAndMortyModel(String imageUrl, String name, int age, String color) {
+    public BusinessModel(String imageUrl, String name, int age, String color) {
         this.imageUrl = imageUrl;
         this.name = name;
         this.age = age;
