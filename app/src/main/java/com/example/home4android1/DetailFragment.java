@@ -17,7 +17,6 @@ import com.google.android.material.button.MaterialButton;
 
 public class DetailFragment extends Fragment {
 
-
     private ImageView ivFullScreen;
     private BusinessModel model;
     private MaterialButton buttonRedactor;
@@ -44,10 +43,8 @@ public class DetailFragment extends Fragment {
 
     private void onClick() {
         buttonRedactor.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 String uriRedactor = imageRedactor.getText().toString().trim();
                 String nameRedactcor = namePerson.getText().toString().trim();
                 String ageRedactcor = agePerson.getText().toString().trim();
@@ -62,7 +59,6 @@ public class DetailFragment extends Fragment {
                 } else if (ageRedactcor.isEmpty()) {
                     agePerson.setError("Изменений нету");
                 } else {
-
                     Toast.makeText(getContext(), "ВЫ УСПЕШНО ИЗМЕНИЛИ...", Toast.LENGTH_SHORT).show();
                     model.setImageUrl(uriRedactor);
                     model.setName(nameRedactcor);
@@ -77,7 +73,6 @@ public class DetailFragment extends Fragment {
     }
 
     private void getData() {
-
         Bundle arguments = getArguments();
         if (arguments != null) {
             model = (BusinessModel) arguments.getSerializable("character");

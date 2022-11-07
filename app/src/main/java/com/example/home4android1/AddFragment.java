@@ -17,9 +17,8 @@ import java.util.List;
 
 public class AddFragment extends Fragment {
 
-
-    EditText imageViewCreate, editNameCreate, editAgeCreate;
-    Button buttonCreate;
+    private EditText imageViewCreate, editNameCreate, editAgeCreate;
+    private Button buttonCreate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,7 +29,6 @@ public class AddFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
         imageViewCreate = view.findViewById(R.id.image_create);
         editNameCreate = view.findViewById(R.id.et_name_create);
@@ -40,14 +38,12 @@ public class AddFragment extends Fragment {
     }
 
     private void onClick() {
-
         buttonCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String imageCreateView = imageViewCreate.getText().toString().trim();
                 String nameCreateText = editNameCreate.getText().toString().trim();
                 String ageCreateText = editAgeCreate.getText().toString().trim();
-
                 if (imageCreateView.isEmpty() && nameCreateText.isEmpty() && ageCreateText.isEmpty()) {
                     editNameCreate.setError("Введите имя");
                     imageViewCreate.setError("Введите ссылку");

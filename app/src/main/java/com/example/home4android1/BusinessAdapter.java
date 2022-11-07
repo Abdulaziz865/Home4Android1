@@ -52,7 +52,6 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.Charac
     }
 
     public class CharacterViewHolder extends RecyclerView.ViewHolder {
-
         private MaterialCardView mainContainer;
         private ImageView ivImage;
         private TextView tvName;

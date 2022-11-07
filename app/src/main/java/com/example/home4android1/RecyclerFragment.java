@@ -31,7 +31,6 @@ public class RecyclerFragment extends Fragment implements OnItemClickListener {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -43,7 +42,6 @@ public class RecyclerFragment extends Fragment implements OnItemClickListener {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
         buttonAdd = view.findViewById(R.id.button_add);
         rvListOfName = view.findViewById(R.id.rv_list_of_name);
@@ -75,7 +73,6 @@ public class RecyclerFragment extends Fragment implements OnItemClickListener {
 
     @Override
     public void onClick(BusinessModel model) {
-
         Bundle bundle = new Bundle();
         bundle.putSerializable("character", model);
         getParentFragmentManager().beginTransaction()
@@ -85,7 +82,6 @@ public class RecyclerFragment extends Fragment implements OnItemClickListener {
     }
 
     private void onAdds() {
-
        getParentFragmentManager().setFragmentResultListener("OK", getViewLifecycleOwner(), new FragmentResultListener() {
             @Override
             public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
