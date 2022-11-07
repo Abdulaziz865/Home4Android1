@@ -10,6 +10,7 @@ import java.util.Set;
 public class BusinessRepository {
 
     private final List<BusinessModel> listOfCharacters = new ArrayList<>();
+
     public List<BusinessModel> getListOfCharacters() {
         listOfCharacters.add(new BusinessModel("https://avatars.mds.yandex.net/i?id=358ef38c5d070e947d846ee41357859fd24cd965-5858200-images-thumbs&n=13", "Elon Musk", 50, "#FFBB86FC"));
         listOfCharacters.add(new BusinessModel("https://avatars.mds.yandex.net/i?id=f8d4eafb8881e59471de5b43b3eab937-4766550-images-thumbs&n=13", "Jeaff Bezos", 57, "#FF6200EE"));
@@ -23,5 +24,4 @@ public class BusinessRepository {
         listOfCharacters.add(new BusinessModel("https://images-media.currency.com/a7c6ec35/1dcb/5212/abbc/b0575fb4b79f/on_page/bernard-arnault.jpg", "Bernar Arno", 77, "#FF063F6A"));
         return listOfCharacters;
     }
-
 }
