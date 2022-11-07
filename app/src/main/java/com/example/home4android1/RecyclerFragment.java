@@ -22,7 +22,7 @@ import java.util.Set;
 public class RecyclerFragment extends Fragment implements OnItemClickListener {
 
     private BusinessRepository repository = new BusinessRepository();
-    Button buttonAdd;
+    private Button buttonAdd;
     private List<BusinessModel> businessList;
     private BusinessModel model;
     private final BusinessAdapter adapter = new BusinessAdapter(this);
@@ -50,7 +50,6 @@ public class RecyclerFragment extends Fragment implements OnItemClickListener {
         adapter.setData(businessList);
         onAdds();
         onClick();
-
     }
 
     public void onClick() {
